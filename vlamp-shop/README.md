@@ -1,1 +1,1 @@
-# 🙏  Thanks for Contributing and being part of the ride! 🚀
+# 🙏  Thank You for Contributing! 🚀
