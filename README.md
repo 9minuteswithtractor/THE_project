@@ -1,7 +1,11 @@
-
 # Free time THE_project - let's go! 💪 😅
 
-    Send data to the server
+✅  After git clone
+
+        git switch dev_branch
+        npm i
+    
+   ✅ Send data to the server
     
     If You are using XAMPP then You need to add virtual-host ( or work within htdocs directory (default) )
     Adding v-host: /Applications/XAMPP/xamppfiles/etc/extra/httpd-vhosts.conf
@@ -17,4 +21,4 @@
           # ErrorLog "logs/mysite.local-error_log"
     </VirtualHost>  
 
-IMPORTANT! : restart XAMPP WebServer for the new config to work
+❗️ IMPORTANT : restart XAMPP WebServer for the new config to work
