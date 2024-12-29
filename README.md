@@ -7,13 +7,18 @@
     
    ✅ Send data to the server
     
-    If You are using XAMPP then You need to add virtual-host ( or work within htdocs directory (default) )
-    Adding v-host: /Applications/XAMPP/xamppfiles/etc/extra/httpd-vhosts.conf
-    Under localhost Server add another host and set UrUserName and pathToProject:
+❗️ If You are using XAMPP then You need to add virtual-host so we can access php in other directories ( chained to /Applications/XAMPP/xamppfiles/htdocs by default )
+
+Add / update v-host: 
+
+        /Applications/XAMPP/xamppfiles/etc/extra/httpd-vhosts.conf
+        
+Under localhost Server add another host and set UrUserName and pathToProject:
+    
     <VirtualHost *:80>
           ServerName shop.localhost
-          DocumentRoot "/Users/..UrUserName/..pathToProject/vlamp-shop/PHP"
-          <Directory "/Users/..UrUserName/..pathToProject/vlamp-shop/PHP">
+          DocumentRoot "/Users/..UrUserName/..pathToProject/THE_project/vlamp-shop/backend/PHP"
+          <Directory "/Users/..UrUserName/..pathToProject/THE_project/vlamp-shop/backend/PHP">
               Options Indexes FollowSymLinks Includes execCGI
               AllowOverride All
               Require all granted
