@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: ghostwhite;
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .input-container {
+    padding: 20px;
+
+    input {
+      outline: none;
+      width: 300px;
+    }
+
+    button {
+      background-color: rgb(173, 216, 230);
+    }
+
+    button:hover {
+      background-color: rgba(173, 216, 230, 0.7);
+      cursor: pointer;
+    }
+
+    input,
+    button {
+      padding: 20px;
+      margin: 5px;
+    }
+  }
+  .result-container {
+    height: 100px;
+    padding: 10px;
+    place-content: center;
+  }
+}
