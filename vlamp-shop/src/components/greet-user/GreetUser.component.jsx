@@ -15,9 +15,7 @@ const GreetUser = ({ sayHello }) => {
     // Prevents the default form submission behavior (page reload)
     event.preventDefault();
 
-    // Call the 'sayHello' function passed as a prop with the 'name' value
-    // sayHello(name);
-    // Data to be sent to the Backend
+    // Data to be sent to the server
     const data = {
       user: name,
     };
@@ -30,7 +28,7 @@ const GreetUser = ({ sayHello }) => {
         },
       })
       .then((response) => {
-        sayHello(response.data); // Set the greeting text from the server
+        sayHello(response.data); // Set the greeting text from the server and pass it back to the parent component
       })
       .catch((error) => {
         console.error("Error during submit ...", error);
