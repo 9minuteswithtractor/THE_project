@@ -2,7 +2,7 @@
 
 ✅  After git clone
 
-        cd frontend
+        cd dev_branch
         npm i
     
    ✅ Send data to the server
