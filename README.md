@@ -2,7 +2,7 @@
 
 ✅  After git clone
 
-        cd dev_branch
+        git switch dev_branch
         npm i
     
    ✅ Send data to the server
