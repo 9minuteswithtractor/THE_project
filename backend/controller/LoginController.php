@@ -52,7 +52,7 @@ class LoginController
                     return;
                 }
             } else {
-                echo json_encode(['message' => 'No username found ...']);
+                echo json_encode(['message' => 'No user found...']);
                 return;
             }
         }
