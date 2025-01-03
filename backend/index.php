@@ -9,25 +9,66 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Access-Control-Allow-Credentials: true');  // If necessary
 
-
-// Handle GET requests to /api/posts
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER['REQUEST_URI'] == '/api/posts') {
-    require __DIR__ . '/models/Post.php';  // Assuming this is the correct location
-    $posts = Post::getPosts();  // Fetch posts
-
-    // Set response type to JSON
-    header('Content-Type: application/json');
-
-    // Return the posts as a JSON response
-    echo json_encode($posts);
-
-    // in case of invalid url
-} else {
-
-    header("HTTP/1.1 404 Not Found");  // Send 404 status code
-    header('Content-Type: application/json');  // Return response as JSON
-
-    // Return a simple 404 error message
-    echo json_encode(['error' => '404 Not Found: The requested resource could not be found.']);
+// Handle OPTIONS requests (pre-flight)
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    header('HTTP/1.1 200 OK');
     exit;
+}
+
+session_start();
+
+require __DIR__ . "/controller/PostsController.php";
+require __DIR__ . "/controller/LoginController.php";
+
+
+/**
+ * Front Controller (url router)
+ */
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    switch ($uri) {
+
+        case '/api/posts':
+            $postController = new PostsController();
+            $postController->getPosts();
+            break;
+
+
+
+        default:
+            header("HTTP/1.1 404 Not Found");
+            header('Content-Type: application/json');
+
+            echo json_encode(['error' => '404 Not Found: The requested resource could not be found.']);
+            exit;
+    }
+} else {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+
+
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        switch ($uri) {
+            case '/api/login':
+
+
+
+                $loginController = new LoginController();
+                $loginController->handleLogin();
+
+
+                break;
+
+            default:
+
+                header('Content-Type: application/json');
+
+                echo json_encode(['error' => '500 Not Found: The requested  could not be made.']);
+                exit;
+        }
+    }
 }

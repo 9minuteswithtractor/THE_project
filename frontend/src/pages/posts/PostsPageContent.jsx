@@ -15,7 +15,7 @@ const PostsPageContent = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log("Failed to load data ...");
+        console.log("Failed to load data ...", err);
         setLoading(false);
       });
   }, []);
